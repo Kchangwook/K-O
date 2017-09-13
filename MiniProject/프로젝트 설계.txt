@@ -1,9 +1,8 @@
-1. Home(Login)	-> 로그인 	-> 메인
-		-> 회원가입	-> Home
+1. Login	-> 로그인 	-> 메인
+		-> 회원가입	-> Login
 
-
-2. 메인		-> 회원 정보 수정	-> 메인
-		-> 강좌 검색		-> 강좌 상세 정보	-> 수강 신청	
+2. 메인(로그인 이후)		-> 회원 정보 수정	-> 메인
+		-> 강좌 검색(목록)	-> 강좌 상세 정보	-> 수강 신청	
 		-> 로그아웃		-> Home
 		-> 현재 수강중인 강좌 목록	-> 유지 or 취소	-> 메인
 		-> FAQ	목록		-> FAQ상세 내용		-> 메인
@@ -17,3 +16,26 @@ free - 자유게시판
 
 아이디: miniproject
 패스워드: 1234
+
+login.html -> login.jsp(msg로 실패 이유 표시) -> login.do(확인) -> login.jsp(실패)
+
+								-> main.jsp(성공)
+
+					      -> join.jsp(회원가입 버튼 클릭시)	-> join.do	-> login.jsp(msg전송)
+
+main.jsp	-> mypage.jsp	-> mypage.do(msg 전송)	-> main.jsp(msg 출력)
+	
+		-> search.jsp(전체 목록)		-> search.do(상세정보 가져오기)		-> searchDetail.jsp(수강 신청 or 뒤로)	-> ask.do(msg 출력)
+
+		-> present.jsp(현재 수강 전체 목록 - 취소 여부[버튼 생성])			-> presentDelete.do(삭제여부 msg)
+
+		-> FAQ.jsp(전체 목록)			-> FAQ.do(상세정보 가져오기)		-> FAQDetail.jsp(목록, 메인)
+
+		-> free.jsp(전체 목록)			-> write.jsp(글쓰기)
+
+							-> free.do(상세정보 가져오기)		-> freeDetail.jsp(수정,삭제,msg 출력)	-> freeChange.jsp(수정)		-> freeChange.do(detail로 msg)
+
+																	-> freeDelete.do(삭제)		-> free.jsp
+
+		
+
