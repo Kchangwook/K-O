@@ -14,3 +14,6 @@ lecture - 강의
 present - 수강중인 강좌 목록
 FAQ - FAQ
 free - 자유게시판
+
+아이디: miniproject
+패스워드: 1234
