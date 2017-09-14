@@ -25,7 +25,7 @@ login.html -> login.jsp(msg로 실패 이유 표시) -> login.do(확인) -> logi
 
 main.jsp	-> mypage.jsp	-> mypage.do(msg 전송)	-> main.jsp(msg 출력)
 	
-		-> search.jsp(전체 목록)		-> search.do(상세정보 가져오기)		-> searchDetail.jsp(수강 신청 or 뒤로)	-> ask.do(msg 출력)
+		-> searchAll.do(전체 목록 받아오기)	-> search.jsp(전체 목록)		-> search.do(상세정보 가져오기)		-> searchDetail.jsp(수강 신청 or 뒤로)	-> ask.do(msg 출력)
 
 		-> present.do(목록 받아오기) -> present.jsp(현재 수강 전체 목록 - 취소 여부[버튼 생성])			-> presentDelete.do(삭제여부 msg)
 

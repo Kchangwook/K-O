@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<form action="${pageContext.request.contextPath}/Login.do" method="post">
+		<input type="text" name="id">
+		<input type="password" name="password">
+		<input type="submit" value="로그인">
+	</form>
+	${requestScope.msg}
+	
 </body>
 </html>
