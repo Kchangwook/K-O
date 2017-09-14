@@ -4,9 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>FAQDetail</title>
 </head>
 <body>
-
+	<table>
+		<tr>
+			<td>제목</td>
+			<td>${f.FAQName }</td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td><pre>${f.FAQContent }</pre></td>
+		</tr>
+	</table>
+	<a href = "FAQ.do?command=getList"><button>목록으로</button></a>
 </body>
 </html>

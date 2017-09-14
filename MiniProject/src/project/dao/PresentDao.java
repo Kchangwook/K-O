@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import project.dto.Lecture;
+import project.dto.Present;
 import project.util.DBUtil;
 
 /** Present Table과 연동하기 위한 클래스 */
@@ -92,5 +93,32 @@ public class PresentDao {
 		return result;
 		
 	}//end of deletePresent
+	
+	/** 장바구니에 추가하는 함수 */
+	public int addPresent(Present p) {
+		
+		int result = -1;
+		Connection c = null;
+		PreparedStatement ps = null;
+		
+		try {
+			
+			//Connection 및 쿼리문 생성, 실행
+			c = DBUtil.getConnection();
+			ps = c.prepareStatement("insert into present values(?,?)");
+			ps.setString(1, p.getId());
+			ps.setInt(2,p.getLectureNum());
+			result = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(c, ps);
+		}
+		
+		return result;
+		
+	}//end of addPresent
 	
 }//end of PresentDao

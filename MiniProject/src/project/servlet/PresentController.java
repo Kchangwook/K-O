@@ -15,7 +15,7 @@ import project.dao.LectureDao;
 import project.dao.PresentDao;
 import project.dto.Lecture;
 
-/** 현재 수강 목록을 반환하기 위한 servlet */
+/** 현재 수강 목록을 활용하기 위한 servlet */
 @WebServlet("/Present.do")
 public class PresentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,7 +25,7 @@ public class PresentController extends HttpServlet {
 
 		String command = request.getParameter("command");
 
-		/** 명령어 확인 */
+		//명령어 확인
 		if (command.equals("getList"))
 			getList(request, response);
 		else if (command.equals("detail"))
@@ -34,13 +34,6 @@ public class PresentController extends HttpServlet {
 			delete(request,response);
 
 	}// end of doGet
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-
-
-	}// end of doPost
 	
 	/** 수강 중인 강의 삭제 */
 	private void delete(HttpServletRequest request, HttpServletResponse response)
