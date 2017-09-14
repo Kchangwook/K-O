@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,11 +40,13 @@ public class PresentDao {
 		
 		try {
 			
+			//Connection 및 쿼리문 생성, 실행
 			c = DBUtil.getConnection();
 			ps = c.prepareStatement("select * from present p, lecture l where p.id = ? and p.lecture_num = l.lecture_num");
 			ps.setString(1, id);
 			rs = ps.executeQuery();
 			
+			//Lecture 객체들 저장
 			while(rs.next()) 
 				list.add(new Lecture(rs.getInt("lecture_Num"), rs.getString("lecture_Name"),rs.getString("lecture_Teacher"), 
 						rs.getDate("lecture_Start_Date"),rs.getDate("lecture_End_Date"),rs.getDate("lecture_Start_Time"), rs.getDate("lecture_End_Time")
@@ -63,5 +64,33 @@ public class PresentDao {
 		return list;
 		
 	}//end of getList
+	
+	/** 수강 취소하는 함수 */
+	public int deletePresent(String id, int lectureNum) {
+		
+		int result = -1;
+		Connection c = null;
+		PreparedStatement ps = null;
+		
+		try {
+			
+			//Connection 및 쿼리문 생성, 실행
+			c = DBUtil.getConnection();
+			ps = c.prepareStatement("delete from present where id = ? and lecture_num = ?");
+			ps.setString(1, id);
+			ps.setInt(2, lectureNum);
+			result = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(c, ps);
+		}
+		
+		//결과 값 반환
+		return result;
+		
+	}//end of deletePresent
 	
 }//end of PresentDao

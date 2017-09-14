@@ -10,7 +10,7 @@
 	${sessionScope.id}님 안녕하세요
 	<a href="${pageContext.request.contextPath}/mypage/mypage.jsp">mypage</a>
 	<a href="${pageContext.request.contextPath}/SearchAll.do">전체 목록</a>
-	<a href="${pageContext.request.contextPath}/Present.do">수강 신청 목록</a>
+	<a href="${pageContext.request.contextPath}/Present.do?command=getList">수강 신청 목록</a>
 	<a href="${pageContext.request.contextPath}/faq/faq.jsp">FAQ</a>
 	<a href="${pageContext.request.contextPath}/free/free.jsp">자유 게시판</a>
 </body>
