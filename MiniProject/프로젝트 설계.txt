@@ -1,41 +1,41 @@
-1. Login	-> ·Î±×ÀÎ 	-> ¸ÞÀÎ
-		-> È¸¿ø°¡ÀÔ	-> Login
+1. Login	-> ë¡œê·¸ì¸ 	-> ë©”ì¸
+		-> íšŒì›ê°€ìž…	-> Login
 
-2. ¸ÞÀÎ(·Î±×ÀÎ ÀÌÈÄ)		-> È¸¿ø Á¤º¸ ¼öÁ¤	-> ¸ÞÀÎ
-		-> °­ÁÂ °Ë»ö(¸ñ·Ï)	-> °­ÁÂ »ó¼¼ Á¤º¸	-> ¼ö°­ ½ÅÃ»	
-		-> ·Î±×¾Æ¿ô		-> Home
-		-> ÇöÀç ¼ö°­ÁßÀÎ °­ÁÂ ¸ñ·Ï	-> À¯Áö or Ãë¼Ò	-> ¸ÞÀÎ
-		-> FAQ	¸ñ·Ï		-> FAQ»ó¼¼ ³»¿ë		-> ¸ÞÀÎ
-		-> ÀÚÀ¯°Ô½ÃÆÇ ¸ñ·Ï	-> ±Ûº¸±â,±Û¾²±â	-> ¼öÁ¤ or »èÁ¦ or µî·Ï		->ÀÚÀ¯°Ô½ÃÆÇ ¸ñ·Ï
+2. ë©”ì¸(ë¡œê·¸ì¸ ì´í›„)		-> íšŒì› ì •ë³´ ìˆ˜ì •	-> ë©”ì¸
+		-> ê°•ì¢Œ ê²€ìƒ‰(ëª©ë¡)	-> ê°•ì¢Œ ìƒì„¸ ì •ë³´	-> ìˆ˜ê°• ì‹ ì²­	
+		-> ë¡œê·¸ì•„ì›ƒ		-> Home
+		-> í˜„ìž¬ ìˆ˜ê°•ì¤‘ì¸ ê°•ì¢Œ ëª©ë¡	-> ìœ ì§€ or ì·¨ì†Œ	-> ë©”ì¸
+		-> FAQ	ëª©ë¡		-> FAQìƒì„¸ ë‚´ìš©		-> ë©”ì¸
+		-> ìžìœ ê²Œì‹œíŒ ëª©ë¡	-> ê¸€ë³´ê¸°,ê¸€ì“°ê¸°	-> ìˆ˜ì • or ì‚­ì œ or ë“±ë¡		->ìžìœ ê²Œì‹œíŒ ëª©ë¡
 
-member - È¸¿ø
-lecture - °­ÀÇ
-present - ¼ö°­ÁßÀÎ °­ÁÂ ¸ñ·Ï
+member - íšŒì›
+lecture - ê°•ì˜
+present - ìˆ˜ê°•ì¤‘ì¸ ê°•ì¢Œ ëª©ë¡
 FAQ - FAQ
-free - ÀÚÀ¯°Ô½ÃÆÇ
+free - ìžìœ ê²Œì‹œíŒ
 
-¾ÆÀÌµð: miniproject
-ÆÐ½º¿öµå: 1234
+ì•„ì´ë””: miniproject
+íŒ¨ìŠ¤ì›Œë“œ: 1234
 
-login.html -> login.jsp(msg·Î ½ÇÆÐ ÀÌÀ¯ Ç¥½Ã) -> login.do(È®ÀÎ) -> login.jsp(½ÇÆÐ)
+login.html -> login.jsp(msgë¡œ ì‹¤íŒ¨ ì´ìœ  í‘œì‹œ) -> login.do(í™•ì¸) -> login.jsp(ì‹¤íŒ¨)
 
-								-> main.jsp(¼º°ø)
+								-> main.jsp(ì„±ê³µ)
 
-					      -> join.jsp(È¸¿ø°¡ÀÔ ¹öÆ° Å¬¸¯½Ã)	-> join.do	-> login.jsp(msgÀü¼Û)
+					      -> join.jsp(íšŒì›ê°€ìž… ë²„íŠ¼ í´ë¦­ì‹œ)	-> join.do	-> login.jsp(msgì „ì†¡)
 
-main.jsp	-> mypage.jsp	-> mypage.do(msg Àü¼Û)	-> main.jsp(msg Ãâ·Â)
+main.jsp	-> mypage.jsp	-> mypage.do(msg ì „ì†¡)	-> main.jsp(msg ì¶œë ¥)
 	
-		-> search.jsp(ÀüÃ¼ ¸ñ·Ï)		-> search.do(»ó¼¼Á¤º¸ °¡Á®¿À±â)		-> searchDetail.jsp(¼ö°­ ½ÅÃ» or µÚ·Î)	-> ask.do(msg Ãâ·Â)
+		-> search.jsp(ì „ì²´ ëª©ë¡)		-> search.do(ìƒì„¸ì •ë³´ ê°€ì ¸ì˜¤ê¸°)		-> searchDetail.jsp(ìˆ˜ê°• ì‹ ì²­ or ë’¤ë¡œ)	-> ask.do(msg ì¶œë ¥)
 
-		-> present.jsp(ÇöÀç ¼ö°­ ÀüÃ¼ ¸ñ·Ï - Ãë¼Ò ¿©ºÎ[¹öÆ° »ý¼º])			-> presentDelete.do(»èÁ¦¿©ºÎ msg)
+		-> present.jsp(í˜„ìž¬ ìˆ˜ê°• ì „ì²´ ëª©ë¡ - ì·¨ì†Œ ì—¬ë¶€[ë²„íŠ¼ ìƒì„±])			-> presentDelete.do(ì‚­ì œì—¬ë¶€ msg)
 
-		-> FAQ.jsp(ÀüÃ¼ ¸ñ·Ï)			-> FAQ.do(»ó¼¼Á¤º¸ °¡Á®¿À±â)		-> FAQDetail.jsp(¸ñ·Ï, ¸ÞÀÎ)
+		-> FAQ.jsp(ì „ì²´ ëª©ë¡)			-> FAQ.do(ìƒì„¸ì •ë³´ ê°€ì ¸ì˜¤ê¸°)		-> FAQDetail.jsp(ëª©ë¡, ë©”ì¸)
 
-		-> free.jsp(ÀüÃ¼ ¸ñ·Ï)			-> write.jsp(±Û¾²±â)
+		-> free.jsp(ì „ì²´ ëª©ë¡)			-> write.jsp(ê¸€ì“°ê¸°)
 
-							-> free.do(»ó¼¼Á¤º¸ °¡Á®¿À±â)		-> freeDetail.jsp(¼öÁ¤,»èÁ¦,msg Ãâ·Â)	-> freeChange.jsp(¼öÁ¤)		-> freeChange.do(detail·Î msg)
+							-> free.do(ìƒì„¸ì •ë³´ ê°€ì ¸ì˜¤ê¸°)		-> freeDetail.jsp(ìˆ˜ì •,ì‚­ì œ,msg ì¶œë ¥)	-> freeChange.jsp(ìˆ˜ì •)		-> freeChange.do(detailë¡œ msg)
 
-																	-> freeDelete.do(»èÁ¦)		-> free.jsp
+																	-> freeDelete.do(ì‚­ì œ)		-> free.jsp
 
 		
 
