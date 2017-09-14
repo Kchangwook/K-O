@@ -31,7 +31,7 @@ main.jsp	-> mypage.jsp	-> mypage.do(msg 전송)	-> main.jsp(msg 출력)
 
 		-> FAQ.jsp(전체 목록)			-> FAQ.do(상세정보 가져오기)		-> FAQDetail.jsp(목록, 메인)
 
-		-> free.jsp(전체 목록)			-> write.jsp(글쓰기)
+		-> free.jsp(전체 목록)			-> write.jsp(글쓰기)	-> write.do
 
 							-> free.do(상세정보 가져오기)		-> freeDetail.jsp(수정,삭제,msg 출력)	-> freeChange.jsp(수정)		-> freeChange.do(detail로 msg)
 

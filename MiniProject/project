@@ -1,0 +1,70 @@
+
+
+
+drop table free;
+drop table faq;
+drop table present;
+drop table lecture;
+drop table member;
+drop sequence free_num;
+drop sequence lecture_num;
+drop sequence faq_num;
+
+create table Member(
+ID	varchar (30) primary key,
+password	varchar(30) not null,
+name	varchar(30) not null,
+mail	varchar(30),
+phone	varchar(30)
+);
+create table Lecture(
+Lecture_num	number primary key,
+Lecture_name	varchar(50),
+Lecture_teacher	varchar(50),
+Lecture_start_date	DATE,
+Lecture_end_date	DATE,
+Lecture_start_time	DATE,
+Lecture_end_time	DATE,
+Lecture_content	varchar(1024),
+Lecture_student	varchar(50),
+Lecture_day	varchar(50),
+Lecture_max_num	number,
+Lecture_price	number,
+Lecture_address	varchar(255),
+Lecture_company	varchar(50),
+Lecture_receipt_start	DATE,
+Lecture_receipt_end	DATE,
+Lecture_receipt_method	varchar(255)
+);
+
+create table Free(
+Free_Num	number primary key,
+Free_Name	varchar(50) not null,
+Free_Content	varchar(1024) not null,
+id varchar(30) not null,
+ constraint FK_member_id foreign key (id) references member(id)
+);
+
+create table Present(
+Lecture_num	number,
+id varchar(30) primary key,
+constraint FK_member_id_two foreign key (id) references member(id),
+constraint FK_lecture_lecture_num foreign key (lecture_num) references lecture(lecture_num)
+);
+
+create table FAQ(
+FAQ_Num	number primary key,
+FAQ_Name	varchar(50),
+FAQ_Content	varchar(1024)
+);
+
+create sequence free_num start with 1 increment by 1;
+create sequence faq_num start with 1 increment by 1;
+create sequence lecture_num start with 1 increment by 1;
+
+commit;
+
+
+
+
+
