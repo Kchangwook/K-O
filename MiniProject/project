@@ -7,7 +7,6 @@ drop table present;
 drop table lecture;
 drop table member;
 drop sequence free_num;
-drop sequence lecture_num;
 drop sequence faq_num;
 
 create table Member(
@@ -19,22 +18,22 @@ phone	varchar(30)
 );
 create table Lecture(
 Lecture_num	number primary key,
-Lecture_name	varchar(50),
-Lecture_teacher	varchar(50),
-Lecture_start_date	DATE,
-Lecture_end_date	DATE,
-Lecture_start_time	DATE,
-Lecture_end_time	DATE,
-Lecture_content	varchar(1024),
-Lecture_student	varchar(50),
-Lecture_day	varchar(50),
-Lecture_max_num	number,
-Lecture_price	number,
-Lecture_address	varchar(255),
-Lecture_company	varchar(50),
-Lecture_receipt_start	DATE,
-Lecture_receipt_end	DATE,
-Lecture_receipt_method	varchar(255)
+Lecture_name	varchar(255) not null,
+Lecture_teacher	varchar(50) not null,
+Lecture_start_date	date not null,
+Lecture_end_date	date not null,
+Lecture_start_time	timestamp not null,
+Lecture_end_time	timestamp not null,
+Lecture_content	varchar(1024) not null,
+Lecture_student	varchar(50) not null,
+Lecture_day	varchar(100),
+Lecture_max_num	number not null,
+Lecture_price	number not null,
+Lecture_address	varchar(255) not null,
+Lecture_company	varchar(50) not null,
+Lecture_receipt_start	date not null,
+Lecture_receipt_end	date not null,
+Lecture_receipt_method	varchar(255) not null
 );
 
 create table Free(
@@ -47,20 +46,19 @@ id varchar(30) not null,
 
 create table Present(
 Lecture_num	number,
-id varchar(30) primary key,
+id varchar(30),
 constraint FK_member_id_two foreign key (id) references member(id),
 constraint FK_lecture_lecture_num foreign key (lecture_num) references lecture(lecture_num)
 );
 
 create table FAQ(
 FAQ_Num	number primary key,
-FAQ_Name	varchar(50),
-FAQ_Content	varchar(1024)
+FAQ_Name	varchar(50) not null,
+FAQ_Content	varchar(1024) not null
 );
 
 create sequence free_num start with 1 increment by 1;
 create sequence faq_num start with 1 increment by 1;
-create sequence lecture_num start with 1 increment by 1;
 
 commit;
 

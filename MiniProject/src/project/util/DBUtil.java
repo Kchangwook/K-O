@@ -53,4 +53,19 @@ public class DBUtil {
 		
 	}//end of close
 	
+	/** DB Connection 해제하는 함수 */
+	public static void close(Connection c,PreparedStatement ps) {
+		
+		try {
+			
+			if(ps != null) {ps.close(); ps = null;}
+			if(c != null) {c.close(); c = null;}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}//end of close
+	
 }//end of DBUtil
