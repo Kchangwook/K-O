@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	
+	<form action="${pageContext.request.contextPath}/Join.do" method="post">
+		아이디 입력 : <input type="text" name="id"><br>
+		비번 입력 : <input type="password" name="password"><br>
+		이름 입력 : <input type="text" name="name"><br>
+		이메일 입력 : <input type="text" name="email"><br>
+		번호 입력 : <input type="text" name="phone"><br>
+		<input type="submit" value="회원가입">
+	</form>
+	
 </body>
 </html>
