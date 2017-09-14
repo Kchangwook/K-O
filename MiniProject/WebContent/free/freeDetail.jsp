@@ -4,9 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>FreeDetail</title>
 </head>
 <body>
-
+	<table>
+		<tr>
+			<td>제목</td>
+			<td>${f.freeName }</td>
+		</tr>
+		<tr>
+			<td>작성자</td>
+			<td>${f.id }</td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td><pre>${f.freeContent }</pre></td>
+		</tr>
+	</table>
+	<a href = "Free.do?command=detail&num=${f.freeNum}&change=-1"><button>수정</button></a>
+	<a href = "Free.do?command=getList"><button>목록으로</button></a>
 </body>
 </html>

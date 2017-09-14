@@ -12,7 +12,7 @@
 	<a href="${pageContext.request.contextPath}/Search.do">전체 목록</a>
 	<a href="${pageContext.request.contextPath}/Present.do?command=getList">수강 신청 목록</a>
 	<a href="${pageContext.request.contextPath}/FAQ.do?command=getList">FAQ</a>
-	<a href="${pageContext.request.contextPath}/free/free.jsp">자유 게시판</a>
+	<a href="${pageContext.request.contextPath}/Free.do?command=getList">자유 게시판</a>
 	${param.msg}
 </body>
 </html>
