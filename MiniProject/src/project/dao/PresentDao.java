@@ -32,7 +32,7 @@ public class PresentDao {
 	
 	/* 함수 */
 	/** 현재 수강중인 강좌의 코드를 반환 하는 함수 */
-	public static List<Lecture> getList(String id){
+	public List<Lecture> getList(String id){
 		
 		List<Lecture> list = new ArrayList<>();
 		Connection c = null;
@@ -42,17 +42,16 @@ public class PresentDao {
 		try {
 			
 			c = DBUtil.getConnection();
-			ps = c.prepareStatement("select * from present p, lecture l where p.id = ? and p.lecture_num = l.lecture_num;");
+			ps = c.prepareStatement("select * from present p, lecture l where p.id = ? and p.lecture_num = l.lecture_num");
 			ps.setString(1, id);
 			rs = ps.executeQuery();
 			
-			SimpleDateFormat dt = new SimpleDateFormat("yyyyy-mm-dd hh:mm:ss"); 
-			
-//			while(rs.next()) 
-//				list.add(new Lecture(rs.getInt("lectureNum"), rs.getString("lectureName"),rs.getString("lectureTeacher"), 
-//						Date lectureStartDate,Date lectureEndDate, Date lectureStartTime, Date lectureEndTime, String lectureContent,
-//						String lectureStudent, String lectureDay, int lectureMaxNum, int lecturePrice, String lectureAddress,
-//						String lectureCompany, Date lectureReceiptStart, Date lectureReceiptEnd, String lectureReceiptMethod));
+			while(rs.next()) 
+				list.add(new Lecture(rs.getInt("lecture_Num"), rs.getString("lecture_Name"),rs.getString("lecture_Teacher"), 
+						rs.getDate("lecture_Start_Date"),rs.getDate("lecture_End_Date"),rs.getDate("lecture_Start_Time"), rs.getDate("lecture_End_Time")
+						, rs.getString("lecture_Content"),rs.getString("lecture_Student"),rs.getString("lecture_Day"),rs.getInt("lecture_Max_Num")
+						, rs.getInt("lecture_Price"),rs.getString("lecture_Address"),rs.getString("lecture_Company"), rs.getDate("lecture_Receipt_Start"),
+						rs.getDate("lecture_Receipt_End"),rs.getString("lecture_Receipt_Method")));
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
