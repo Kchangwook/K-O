@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <head>
 <style>
 table, tr, th , td{
@@ -17,8 +18,9 @@ table, tr, th , td{
 <title>Present</title>
 </head>
 <body>
-	<table>
-		<tr>
+<div class="w3-container">
+	  <table class="w3-table-all w3-hoverable">
+		<tr class="w3-pale-blue">
 			<th>강좌 이름</th>
 			<th>강사</th>
 			<th>강좌 시작 일자</th>
@@ -41,6 +43,7 @@ table, tr, th , td{
 			</tr>
 		</c:forEach>
 	</table>
-	${msg }
+</div>
+	${msg}
 </body>
 </html>

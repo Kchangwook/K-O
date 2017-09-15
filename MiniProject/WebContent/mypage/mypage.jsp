@@ -5,9 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/MyPage.do" method="post">
+<%-- 	<form action="${pageContext.request.contextPath}/MyPage.do" method="post">
 		<table>
 			<tr>
 				<td>아이디</td>
@@ -35,6 +37,52 @@
 			<input type="hidden" value="update" name="command">
 			<input type="submit" value="수정">
 			<input type="reset" value="취소">
-	</form>
+	</form> --%>
+	
+<form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" method="post"  action="${pageContext.request.contextPath}/MyPage.do">
+<h2 class="w3-center">회원정보 수정</h2>
+ 
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+    <div class="w3-rest">
+    	<input class="w3-input w3-border" name="id" type="text" value="${requestScope.member.id}" disabled="disabled">
+      	<input type="hidden" value="${requestScope.member.id}" name="id">
+      
+    </div>
+</div>
+
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+    <div class="w3-rest">
+      <input class="w3-input w3-border" name="password" type="password" value="${requestScope.member.password}" >
+    </div>
+</div>
+
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+    <div class="w3-rest">
+      <input class="w3-input w3-border" name="name" type="text" value="${requestScope.member.name}" >
+    </div>
+</div>
+
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
+    <div class="w3-rest">
+      <input class="w3-input w3-border" name="email" type="text" value="${requestScope.member.email}" >
+    </div>
+</div>
+
+<div class="w3-row w3-section">
+  <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+    <div class="w3-rest">
+      <input class="w3-input w3-border" name="phone" type="text" value="${requestScope.member.phone}" >
+    </div>
+</div>
+
+<p class="w3-center">
+	<button class="w3-button w3-section w3-blue w3-ripple" onclick="location.href='${pageContext.request.contextPath}/MyPage.do?command=update'" > Send </button>
+	<input type="hidden" value="update" name="command">
+</p>
+</form>
 </body>
 </html>

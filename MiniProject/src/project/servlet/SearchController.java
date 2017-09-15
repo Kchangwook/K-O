@@ -57,14 +57,22 @@ public class SearchController extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		String id = (String) session.getAttribute("id");
 		System.out.println("controller : " + id);
-		int start = Integer.valueOf(request.getParameter("start"));
-		int end = Integer.valueOf(request.getParameter("end"));
-		System.out.println(start + "  " + end);
+		String pageNumber=request.getParameter("pageNumber");
+	    if(pageNumber==null) pageNumber="1";
+	      
+	    int currentPage=Integer.parseInt(pageNumber);
+	    int boardSize=10;
+	      
+	    int startRow=(currentPage-1)*boardSize+1;
+	    int endRow=currentPage*boardSize;
+//		int start = Integer.valueOf(request.getParameter("start"));
+//		int end = Integer.valueOf(request.getParameter("end"));
+//		System.out.println(start + "  " + end);
 		String url = null;
 		String msg = null;
 		
 		try {
-			Map<Integer, List<Lecture>> map = LectureDao.searchAll(start, end);
+			Map<Integer, List<Lecture>> map = LectureDao.searchAll(startRow, endRow);
 			
 			Set<Integer> set = map.keySet();
 			System.out.println(set);
@@ -79,6 +87,10 @@ public class SearchController extends HttpServlet {
 			System.out.println(cnt);
 			request.setAttribute("cnt", cnt);			
 			request.setAttribute("list", list);
+			request.setAttribute("currentPage", currentPage);
+			request.setAttribute("boardSize", boardSize);
+			request.setAttribute("startRow", startRow);
+			request.setAttribute("endRow", endRow);
 			url="search/search.jsp";
 			
 		} catch (Exception e) {
@@ -125,7 +137,7 @@ public class SearchController extends HttpServlet {
 			
 			msg = LectureDao.ask(lectureNum, id);
 			
-			url = "main.jsp";
+			url = "index.jsp";
 			
 		} catch (Exception e) {
 			// TODO: handle exception

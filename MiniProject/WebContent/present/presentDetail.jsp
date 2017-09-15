@@ -7,9 +7,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>presentDetail</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-	<table>
+<div class="w3-container">
+	<table class="w3-table-all w3-hoverable">
 		<tr>
 			<td>강좌 이름:</td>
 			<td>${lecture.lectureName }</td>
@@ -78,7 +80,6 @@
 	<a href = "Present.do?command=delete&num=${lecture.lectureNum}"><button>삭제</button></a>
 	<a href = "Present.do?command=getList"><button>확인</button></a>
 	<input type = "reset" value = "취소">
-
-
+</div>
 </body>
 </html>

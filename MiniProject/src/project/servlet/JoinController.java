@@ -36,7 +36,7 @@ public class JoinController extends HttpServlet {
 		try {
 			msg = MemberDao.join(member);
 			System.out.println(msg);
-			url = "login/login.jsp";
+			url = "index.jsp";
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

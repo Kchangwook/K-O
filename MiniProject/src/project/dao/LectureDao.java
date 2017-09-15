@@ -70,7 +70,7 @@ public class LectureDao {
 	}//end of getLecture
 	
 	/** 강의 전체 목록을 가져오는 함수*/
-	public static Map<Integer, List<Lecture>> searchAll(int start, int end){
+	public static Map<Integer, List<Lecture>> searchAll(int startRow, int endRow){
 		List<Lecture> list = new ArrayList<>();
 		Map<Integer, List<Lecture>> map = new HashMap<>();
 		Connection c = null;
@@ -91,13 +91,13 @@ public class LectureDao {
 			System.out.println(cnt);
 			ps.close();
 //			sql = "select * from lecture";
-			System.out.println(start + "      " + end);
+			System.out.println(startRow + "      " + endRow);
 			sql = "SELECT * FROM "
 					+ "( SELECT l.*, ROWNUM AS RNUM FROM "
 					+ "( SELECT * FROM lecture ) l ) WHERE RNUM >= ? AND RNUM <= ?";
 			ps = c.prepareStatement(sql);
-			ps.setInt(1, start);
-			ps.setInt(2, end);
+			ps.setInt(1, startRow);
+			ps.setInt(2, endRow);
 			
 			rs = ps.executeQuery();
 			while(rs.next()){

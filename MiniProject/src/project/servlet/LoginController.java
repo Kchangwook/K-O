@@ -37,10 +37,10 @@ public class LoginController extends HttpServlet {
 			if("로그인 성공".equals(msg)){
 				session = request.getSession();
 				session.setAttribute("id", id);
-				url = "main.jsp";
+				url = "index.jsp";
 			}else{
 				request.setAttribute("msg", msg);
-				url = "login/login.jsp";
+				url = "index.jsp";
 			}
 			
 		} catch (Exception e) {

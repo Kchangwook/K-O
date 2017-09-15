@@ -30,6 +30,7 @@ public class MyPageController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		
 		String command = request.getParameter("command");
+		System.out.println(command);
 		
 		if(command.equals("update")){
 			update(request, response);
@@ -48,8 +49,9 @@ public class MyPageController extends HttpServlet {
 		try {
 			
 			Member member = MemberDao.mypage(id);
-			System.out.println(member.toString());
+			System.out.println("controller: " + member.toString());
 			request.setAttribute("member", member);
+			
 			url = "mypage/mypage.jsp";
 			
 		} catch (Exception e) {
@@ -60,7 +62,6 @@ public class MyPageController extends HttpServlet {
 	}
 	
 	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		Member member = new Member(request.getParameter("id"), request.getParameter("password"), request.getParameter("name"), request.getParameter("email"), request.getParameter("phone"));
 		String url = null;
 		String msg = null;
@@ -68,7 +69,7 @@ public class MyPageController extends HttpServlet {
 			
 			msg = MemberDao.update(member);
 			
-			url="main.jsp";
+			url="index.jsp";
 			
 		} catch (Exception e) {
 			// TODO: handle exception

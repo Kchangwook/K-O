@@ -5,9 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-	<table>
+<div class="w3-container">
+	<table class="w3-table-all w3-hoverable">
 		<tr>
 			<td>강좌 이름:</td>
 			<td>${requestScope.lecture.lectureName }</td>
@@ -75,5 +77,6 @@
 	</table>
 	<a href = "${pageContext.request.contextPath}/Search.do?command=ask&lectureNum=${requestScope.lecture.lectureNum}"><button>수강 신청</button></a>
 	<input type = "reset" value = "취소">
+</div>
 </body>
 </html>
