@@ -8,6 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
+#list{
+	color:white;
+}
 table, tr, td {
 	background-color:#18bc9c;
 	color:white;
@@ -56,7 +59,7 @@ table, tr, td {
 				<td>상세 보기</td>
 			</tr>
 			<c:forEach begin="1" end="10" var="a" varStatus="cnt" step="1">
-			<c:if test = ${not empty requestScope.list[a-1].lectureName }>
+			<c:if test = "${not empty requestScope.list[a-1].lectureName }">
 				<tr>
 					<td>${requestScope.list[a-1].lectureNum}</td>
 					<td>${requestScope.list[a-1].lectureName}</td>

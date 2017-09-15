@@ -108,6 +108,8 @@ public class FreeController extends HttpServlet {
 	private void getList(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		request.removeAttribute("msg");
+		
 		FreeDao fd = FreeDao.getInstance();
 		List<Free> list = fd.getList();
 		request.setAttribute("list", list);

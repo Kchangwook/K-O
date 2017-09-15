@@ -7,15 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath }/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="css/freelancer.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/css/freelancer.css" rel="stylesheet">
 </head>
 <body>
 	    <!-- Navigation -->

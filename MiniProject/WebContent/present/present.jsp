@@ -44,7 +44,7 @@ tr, td {
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Present</title>
 </head>
-<body>
+<body style = "background-color:#18bc9c">
 	<jsp:include page="../main.jsp" />
 	<header class="masthead">
 	<div class="w3-container">
@@ -67,8 +67,8 @@ tr, td {
 					<td>${present.lectureReceiptStart }</td>
 					<td>${present.lectureReceiptEnd }</td>
 					<td><a
-						href="Present.do?command=detail&num=${present.lectureNum}">상세
-							보기</a></td>
+						href="Present.do?command=detail&num=${present.lectureNum}"><button class = "button">상세
+							보기</button></a></td>
 				</tr>
 			</c:forEach>
 		</table>

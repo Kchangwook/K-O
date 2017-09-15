@@ -49,7 +49,7 @@ tr, td {
 	<header class="masthead">
 <div class="w3-container">
 	<table class="w3-table-all w3-hoverable">
-		<tr>
+		<tr >
 			<td>강좌 이름:</td>
 			<td>${lecture.lectureName }</td>
 		</tr>
@@ -114,9 +114,10 @@ tr, td {
 			<td>${lecture.lectureReceiptMethod }</td>
 		</tr>
 	</table>
-	<a href = "Present.do?command=delete&num=${lecture.lectureNum}"><button>삭제</button></a>
-	<a href = "Present.do?command=getList"><button>확인</button></a>
-	<input type = "reset" value = "취소">
+	<br>
+	<a href = "Present.do?command=delete&num=${lecture.lectureNum}"><button class = "button">삭제</button></a>
+	<a href = "Present.do?command=getList"><button class = "button">확인</button></a>
+	<input class = "button" type = "reset" value = "취소">
 </div>
 </header>
 </body>
