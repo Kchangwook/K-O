@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.page{
+	width:50%;
+	margin:0 auto;
+}
+.bbox{
+	
+}
+</style>
 </head>
 <body>
 <%-- 	<form action="${pageContext.request.contextPath}/MyPage.do" method="post">
@@ -38,8 +47,9 @@
 			<input type="submit" value="수정">
 			<input type="reset" value="취소">
 	</form> --%>
-	
-<form class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" method="post"  action="${pageContext.request.contextPath}/MyPage.do">
+	<jsp:include page = "../main.jsp"/>
+	<header class="masthead bbox">
+<form class="w3-container w3-card-4 w3-light-grey w3-text-blue page" method="post"  action="${pageContext.request.contextPath}/MyPage.do">
 <h2 class="w3-center">회원정보 수정</h2>
  
 <div class="w3-row w3-section">
@@ -84,5 +94,6 @@
 	<input type="hidden" value="update" name="command">
 </p>
 </form>
+</header>
 </body>
 </html>

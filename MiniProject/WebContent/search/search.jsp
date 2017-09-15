@@ -7,12 +7,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+#list{
+	color:white;
+}
+tr, td {
+	background-color:#18bc9c;
+	color:white;
+}
+
+.button {
+    background-color: #18bc9c; /* Green */
+    border-color:white;
+    border-width:1px;
+    border-style:solid;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button:hover{
+	background-color: white; /* Green */
+    border-color:white;
+    border-width:1px;
+    border-style:solid;
+    color: #18bc9c;
+}
+</style>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
+
 <body>
-	<div class="w3-container">
+	<jsp:include page = "../main.jsp"/>
+	<header class="masthead">
+	<div class="w3-container" >
 		<table class="w3-table-all w3-hoverable">
-			<tr class="w3-pale-blue">
+			<tr class="w3-pale-green">
 				<td>강좌 번호</td>
 				<td>강좌 이름</td>
 				<td>강사</td>
@@ -31,12 +67,12 @@
 					<td>${requestScope.list[a-1].lectureEndDate}</td>
 					<td>${requestScope.list[a-1].lectureStartTime}</td>
 					<td>${requestScope.list[a-1].lectureEndTime}</td>
-					<td><button onclick="location.href='Search.do?command=searchDetail&lectureNum=${requestScope.list[a-1].lectureNum}'">상세
+					<td><button class = "button button1" onclick="location.href='Search.do?command=searchDetail&lectureNum=${requestScope.list[a-1].lectureNum}'">상세
 							보기</button></td>
 				</tr>
 			</c:forEach>
 		</table>
-	</div>
+	</div><br><br>
 	<div align="center">
 		<c:if test="${requestScope.cnt > 0}">
 			<c:set var="pageBlock" value="${5}" />
@@ -58,20 +94,21 @@
 		</c:if>
 
 		<c:if test="${startPage > pageBlock }">
-			<a
+			<a id = "list"
 				href="${pageContext.request.contextPath}/Search.do?command=searchAll&pageNumber=${startPage-1}">[이전]</a>
 		</c:if>
 
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a
+			<a id = "list"
 				href="${pageContext.request.contextPath}/Search.do?command=searchAll&pageNumber=${i}">[${i}]</a>
 		</c:forEach>
 
 		<c:if test="${endPage < pageCount}">
-			<a
+			<a id = "list"
 				href="${pageContext.request.contextPath}/Search.do?command=searchAll&pageNumber=${startPage+pageBlock}">[다음]</a>
 		</c:if>
 	</div>
+	</header>
 
 </body>
 </html>

@@ -53,7 +53,7 @@ constraint FK_lecture_lecture_num foreign key (lecture_num) references lecture(l
 
 create table FAQ(
 FAQ_Num	number primary key,
-FAQ_Name	varchar(50) not null,
+FAQ_Name	varchar(100) not null,
 FAQ_Content	varchar(1024) not null
 );
 

@@ -20,10 +20,6 @@
 		<input type="submit" value="로그인">
 	</form>
 </div>	 --%>
-	${requestScope.msg}
-	<c:if test="${not empty param.msg }">
-		${param.msg} 
-	</c:if>
 <div class="w3-container" style="text-align: left;">	
 	  <div id="id01" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
@@ -38,14 +34,14 @@
           <label style="color:black;"><b>Userid</b></label>
           <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Userid" name="id">
           <label style="color:black;"><b>Password</b></label>
-          <input class="w3-input w3-border" type="text" placeholder="Enter Password" name="password">
+          <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="password">
           <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
         </div>
       </form>
 
       <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
         <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red" >Cancel</button>
-        <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+        <!-- <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span> -->
       </div>
 
     </div>
