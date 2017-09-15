@@ -23,7 +23,7 @@ login.html -> login.jsp(msg로 실패 이유 표시) -> login.do(확인) -> logi
 
 					      -> join.jsp(회원가입 버튼 클릭시)	-> join.do	-> login.jsp(msg전송)
 
-main.jsp	-> mypage.jsp	-> mypage.do(msg 전송)	-> main.jsp(msg 출력)
+main.jsp	-> mypage.do	-> mypage.jsp		->	update.do(msg 전송)	-> main.jsp(msg 출력)
 	
 		-> searchAll.do(전체 목록 받아오기)	-> search.jsp(전체 목록)		-> search.do(상세정보 가져오기)		-> searchDetail.jsp(수강 신청 or 뒤로)	-> ask.do(msg 출력)
 
@@ -36,6 +36,6 @@ main.jsp	-> mypage.jsp	-> mypage.do(msg 전송)	-> main.jsp(msg 출력)
 							-> free.do(상세정보 가져오기)		-> freeDetail.jsp(수정,삭제,msg 출력)	-> freeChange.jsp(수정)		-> freeChange.do(detail로 msg)
 
 																	-> freeDelete.do(삭제)		-> free.jsp
-
+${pageContext.request.contextPath}
 		
 
