@@ -45,8 +45,8 @@ id varchar(30) not null,
 );
 
 create table Present(
-Lecture_num	number,
 id varchar(30),
+Lecture_num	number,
 constraint FK_member_id_two foreign key (id) references member(id),
 constraint FK_lecture_lecture_num foreign key (lecture_num) references lecture(lecture_num)
 );
