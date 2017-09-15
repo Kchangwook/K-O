@@ -8,10 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-#list{
-	color:white;
-}
-tr, td {
+table, tr, td {
 	background-color:#18bc9c;
 	color:white;
 }
@@ -59,6 +56,7 @@ tr, td {
 				<td>상세 보기</td>
 			</tr>
 			<c:forEach begin="1" end="10" var="a" varStatus="cnt" step="1">
+			<c:if test = ${not empty requestScope.list[a-1].lectureName }>
 				<tr>
 					<td>${requestScope.list[a-1].lectureNum}</td>
 					<td>${requestScope.list[a-1].lectureName}</td>
@@ -70,6 +68,7 @@ tr, td {
 					<td><button class = "button button1" onclick="location.href='Search.do?command=searchDetail&lectureNum=${requestScope.list[a-1].lectureNum}'">상세
 							보기</button></td>
 				</tr>
+			</c:if>
 			</c:forEach>
 		</table>
 	</div><br><br>

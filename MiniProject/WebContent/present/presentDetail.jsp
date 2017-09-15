@@ -8,8 +8,45 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>presentDetail</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+#list {
+	background-color: #18bc9c;
+	color: white;
+}
+
+tr, td {
+	background-color: #18bc9c;
+	color: white;
+}
+
+.button {
+	background-color: #18bc9c; /* Green */
+	border-color: white;
+	border-width: 1px;
+	border-style: solid;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: white; /* Green */
+	border-color: white;
+	border-width: 1px;
+	border-style: solid;
+	color: #18bc9c;
+}
+</style>
 </head>
 <body>
+<jsp:include page="../main.jsp" />
+	<header class="masthead">
 <div class="w3-container">
 	<table class="w3-table-all w3-hoverable">
 		<tr>
@@ -81,5 +118,6 @@
 	<a href = "Present.do?command=getList"><button>확인</button></a>
 	<input type = "reset" value = "취소">
 </div>
+</header>
 </body>
 </html>
