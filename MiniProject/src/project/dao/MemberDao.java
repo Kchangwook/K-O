@@ -88,6 +88,7 @@ public class MemberDao {
 		return msg;
 	}
 	
+	/** myPage dao - 회원수정 */
 	public static Member mypage(String id){
 		Connection c = null;
 		PreparedStatement ps = null;

@@ -23,6 +23,7 @@ import project.dao.LectureDao;
 import project.dao.MemberDao;
 import project.dto.Lecture;
 
+/** Search를 활용하기 위한 servlet */
 @WebServlet("/Search.do")
 public class SearchController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

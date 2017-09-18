@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import project.dao.MemberDao;
 import project.dto.Member;
 
+/** 마이페이지(회원수정)를 활용하기 위한 servlet */
 @WebServlet("/MyPage.do")
 public class MyPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -41,6 +42,7 @@ public class MyPageController extends HttpServlet {
 		
 	}
 	
+	/** myPage(회원수정)을 위해 리스트를 가져오는 함수 */
 	public void myPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		String id = (String) session.getAttribute("id");
@@ -61,6 +63,7 @@ public class MyPageController extends HttpServlet {
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 	
+	/**  myPage(회원수정)을 위해 값을 가져오고 데이터를 바꿔주는 함수 */
 	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Member member = new Member(request.getParameter("id"), request.getParameter("password"), request.getParameter("name"), request.getParameter("email"), request.getParameter("phone"));
 		String url = null;

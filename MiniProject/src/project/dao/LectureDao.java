@@ -153,6 +153,7 @@ public class LectureDao {
 		return lecture;
 	}
 
+	/** 수강 신청하는 dao */
 	public static String ask(int lectureNum, String id) {
 		Connection c = null;
 		PreparedStatement ps = null;

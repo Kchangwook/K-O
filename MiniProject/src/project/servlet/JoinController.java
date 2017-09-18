@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import project.dao.MemberDao;
 import project.dto.Member;
 
+/** 회원가입을 활용하기 위한 servlet */
 @WebServlet("/Join.do")
 public class JoinController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -25,6 +26,7 @@ public class JoinController extends HttpServlet {
 		process(request, response);
 	}
 
+	/** 회원가입을 위해 데이터를 입력하는 함수 */
 	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");

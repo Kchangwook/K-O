@@ -44,7 +44,7 @@ tr, td {
 }
 </style>
 </head>
-<body>
+<body style="background-color: #18bc9c";>
 	<jsp:include page="../main.jsp" />
 	<header class="masthead">
 	<div class="w3-container">

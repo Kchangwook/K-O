@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import project.dao.MemberDao;
 
+/** 로그인을 활용하기 위한 servlet */
 @WebServlet("/Login.do")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,6 +24,7 @@ public class LoginController extends HttpServlet {
 		process(request, response);
 	}
 	
+	/** 로그인을 위해 아이디와 비밀번호를 확인하는 함수 */
 	protected void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=utf-8");
 		
@@ -33,13 +35,13 @@ public class LoginController extends HttpServlet {
 		
 		try {
 			String msg = MemberDao.login(id, password);
-			
+			request.setAttribute("msg", msg);
 			if("로그인 성공".equals(msg)){
 				session = request.getSession();
 				session.setAttribute("id", id);
 				url = "index.jsp";
 			}else{
-				request.setAttribute("msg", msg);
+				
 				url = "index.jsp";
 			}
 			

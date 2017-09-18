@@ -30,7 +30,7 @@
     <!-- Header -->
     <header class="masthead">
       <div class="container">
-        <img class="img-fluid" src="img/profile.png" alt="">
+        <img class="img-fluid" src="img/logo.png" alt="" style="width: 250px;">
         <div class="intro-text">
           <span class="name">MiniProject - 평생학습관</span>
           <hr class="star-light">
@@ -48,6 +48,7 @@
         <c:if test="${not empty param.msg }">
         	${param.msg}
         </c:if>
+        ${requestScope.msg}
       </div>
     </header>
 
