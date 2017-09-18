@@ -44,7 +44,7 @@ public class FreeController extends HttpServlet {
 		String content = request.getParameter("content");
 		f.setFreeContent(content);
 		f.setFreeName(name);
-		f.setId("scott");
+		f.setId(id);
 		
 		int result = fd.write(f);
 		
@@ -66,7 +66,7 @@ public class FreeController extends HttpServlet {
 		String id = request.getParameter("id");
 		String name = request.getParameter("title");
 		String content = request.getParameter("content");
-		Free f = new Free(num,name,content,"scott");
+		Free f = new Free(num,name,content,id);
 		
 		int result = fd.update(f);
 		

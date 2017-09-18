@@ -78,8 +78,6 @@ table, tr, td {
 	<div align="center">
 		<c:if test="${requestScope.cnt > 0}">
 			<c:set var="pageBlock" value="${5}" />
-			<c:set var="pageCount"
-				value="${requestScope.cnt/requestScope.boardSize+(requestScope.cnt%requestScope.boardSize==0 ? 0:1)}" />
 			<fmt:parseNumber var="pageCount"
 				value="${requestScope.cnt/requestScope.boardSize+(requestScope.cnt%requestScope.boardSize==0 ? 0:1)}"
 				integerOnly="true" />

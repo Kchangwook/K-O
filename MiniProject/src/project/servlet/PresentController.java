@@ -67,7 +67,7 @@ public class PresentController extends HttpServlet {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		PresentDao pd = PresentDao.getInstance();
-		List<Lecture> list = pd.getList("scott");
+		List<Lecture> list = pd.getList(id);
 
 		// list를 request에 저장
 		request.setAttribute("pList", list);
