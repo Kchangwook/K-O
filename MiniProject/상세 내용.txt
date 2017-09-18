@@ -1,0 +1,8 @@
+파일 안에
+
+서울시 평생 교육 강좌.xlsx - 교육 강좌 데이터
+프로젝트 설계.txt - 프로젝트안에 들어가는 servlet, jsp 내용
+insertsql - faq 디비 내용
+miniproject.exerd - 프로젝트 디비 모델링
+miniproject_ppt.ptx - 프로젝트 설명 ppt
+project - 프로젝트에 필요한 테이블 생성 및 삭제, 시퀀스 생성 후 커밋

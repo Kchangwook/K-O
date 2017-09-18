@@ -54,7 +54,7 @@ public class MemberDao {
 
 		return msg;
 		
-	}
+	} // end of login
 	
 	/** 회원가입 dao */
 	public static String join(Member member){
@@ -86,7 +86,7 @@ public class MemberDao {
 		}
 		
 		return msg;
-	}
+	} // end of join
 	
 	/** myPage dao - 회원수정 */
 	public static Member mypage(String id){
@@ -115,7 +115,7 @@ public class MemberDao {
 		}
 		
 		return member;
-	}
+	} // end of mypage
 	
 	public static String update(Member member){
 		
@@ -152,5 +152,5 @@ public class MemberDao {
 		}
 		
 		return msg;
-	}
-}
+	} // end of update
+} // end of MemberDao

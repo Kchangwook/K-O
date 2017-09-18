@@ -57,7 +57,6 @@ public class SearchController extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);
 		String id = (String) session.getAttribute("id");
-		System.out.println("controller : " + id);
 		String pageNumber=request.getParameter("pageNumber");
 	    if(pageNumber==null) pageNumber="1";
 	      
@@ -66,9 +65,6 @@ public class SearchController extends HttpServlet {
 	      
 	    int startRow=(currentPage-1)*boardSize+1;
 	    int endRow=currentPage*boardSize;
-//		int start = Integer.valueOf(request.getParameter("start"));
-//		int end = Integer.valueOf(request.getParameter("end"));
-//		System.out.println(start + "  " + end);
 		String url = null;
 		String msg = null;
 		
@@ -76,7 +72,6 @@ public class SearchController extends HttpServlet {
 			Map<Integer, List<Lecture>> map = LectureDao.searchAll(startRow, endRow);
 			
 			Set<Integer> set = map.keySet();
-			System.out.println(set);
 			
 			int cnt = 0;
 			List<Lecture> list =null;
@@ -84,8 +79,7 @@ public class SearchController extends HttpServlet {
 				cnt = key;
 				list = map.get(key);
 			}
-//			List<Lecture> list =LectureDao.searchAll();
-			System.out.println(cnt);
+			
 			request.setAttribute("cnt", cnt);			
 			request.setAttribute("list", list);
 			request.setAttribute("currentPage", currentPage);

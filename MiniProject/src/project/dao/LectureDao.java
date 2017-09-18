@@ -151,7 +151,7 @@ public class LectureDao {
 		
 		
 		return lecture;
-	}
+	}// end of searchDetail
 
 	/** 수강 신청하는 dao */
 	public static String ask(int lectureNum, String id) {

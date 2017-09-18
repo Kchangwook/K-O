@@ -46,7 +46,7 @@ public class PresentController extends HttpServlet {
 		PresentDao pd = PresentDao.getInstance();
 
 		// 데이터 삭제
-		int result = pd.deletePresent("scott", num);
+		int result = pd.deletePresent(id, num);
 
 		// 삭제 결과에 따른 메시지 전송
 		if (result == 0)
