@@ -1,0 +1,79 @@
+﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- user Table Create SQL
+CREATE TABLE user
+(
+    `user_id`     VARCHAR(20)    NOT NULL    COMMENT '아이디', 
+    `user_pwd`    VARCHAR(20)    NOT NULL    COMMENT '비밀번호', 
+    `user_name`   VARCHAR(10)    NOT NULL    COMMENT '이름', 
+    `user_email`  VARCHAR(20)    NOT NULL    COMMENT '이메일', 
+    `user_nick`   VARCHAR(10)    NOT NULL    COMMENT '닉네임', 
+    `user_type`   VARCHAR(20)    NOT NULL    COMMENT '회원 타입', 
+    PRIMARY KEY (user_id)
+);
+
+ALTER TABLE user COMMENT '회원';
+
+
+-- user Table Create SQL
+CREATE TABLE lecture
+(
+    `lec_num`          INT              NOT NULL    AUTO_INCREMENT COMMENT '강의 번호', 
+    `lec_name`         VARCHAR(50)      NOT NULL    COMMENT '강의 이름', 
+    `lec_strart_date`  DATETIME         NOT NULL    COMMENT '강의 시작 일자', 
+    `lec_end_date`     DATETIME         NOT NULL    COMMENT '강의 종료 일자', 
+    `user_id`          VARCHAR(20)      NOT NULL    COMMENT '강사 아이디', 
+    `lec_content`      VARCHAR(1000)    NOT NULL    COMMENT '강의 내용', 
+    PRIMARY KEY (lec_num)
+);
+
+ALTER TABLE lecture COMMENT '강의';
+
+
+-- user Table Create SQL
+CREATE TABLE lecture_user
+(
+    `lec_num`  INT            NOT NULL    COMMENT '강의 번호', 
+    `user_id`  VARCHAR(20)    NOT NULL    COMMENT '아이디', 
+    PRIMARY KEY (lec_num, user_id)
+);
+
+ALTER TABLE lecture_user COMMENT '수강중인 강좌 테이블';
+
+
+-- user Table Create SQL
+CREATE TABLE lecture_review
+(
+    `review_num`      INT             NOT NULL    AUTO_INCREMENT COMMENT '후기 번호', 
+    `user_id`         VARCHAR(20)     NULL        COMMENT '작성자 ID', 
+    `review_content`  VARCHAR(200)    NULL        COMMENT '후기 내용', 
+    PRIMARY KEY (review_num)
+);
+
+ALTER TABLE lecture_review COMMENT '강의 후기';
+
+
+-- user Table Create SQL
+CREATE TABLE post
+(
+    `post_num`     INT              NOT NULL    AUTO_INCREMENT COMMENT '게시글 번호', 
+    `user_id`      VARCHAR(20)      NULL        COMMENT '작성자 ID', 
+    `post_conent`  VARCHAR(1000)    NULL        COMMENT '게시글 내용', 
+    PRIMARY KEY (post_num)
+);
+
+ALTER TABLE post COMMENT '자유 게시판 게시글';
+
+
+-- user Table Create SQL
+CREATE TABLE comment
+(
+    `comment_num`      INT             NOT NULL    AUTO_INCREMENT COMMENT '댓글 번호', 
+    `user_id`          VARCHAR(20)     NULL        COMMENT '작성자 ID', 
+    `comment_content`  VARCHAR(500)    NULL        COMMENT '댓글 내용', 
+    PRIMARY KEY (comment_num)
+);
+
+ALTER TABLE comment COMMENT '자유 게시판 댓글';
+
+
