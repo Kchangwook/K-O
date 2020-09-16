@@ -14,7 +14,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource("classpath:/db.properties")
+@PropertySource("classpath:/properties/db.properties")
 public class DBConfig {
 	private final String driverName;
 	private final String url;

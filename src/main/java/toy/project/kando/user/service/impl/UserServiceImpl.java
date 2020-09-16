@@ -1,5 +1,7 @@
 package toy.project.kando.user.service.impl;
 
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +21,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void addUser(User user) {
 		userMapper.insertUser(user);
+	}
+
+	@Override
+	public User login(User user) {
+		User selectedUser = userMapper.selectUserById(user.getUserId());
+
+		if (ObjectUtils.isNotEmpty(selectedUser)
+			&& StringUtils.equals(user.getUserPassword(), selectedUser.getUserPassword())) {
+			return selectedUser;
+		}
+
+		return null;
 	}
 }

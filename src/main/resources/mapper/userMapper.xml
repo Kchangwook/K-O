@@ -5,7 +5,7 @@
 
 <mapper namespace="toy.project.kando.user.mapper.UserMapper">
     <insert id="insertUser" parameterType="user">
-        INSERT INTO USER
+        INSERT INTO user
         (
           user_id
         , user_password
@@ -24,4 +24,15 @@
         , #{userType}
         )
     </insert>
+
+    <select id="selectUserById" parameterType="string" resultType="user">
+        SELECT user_id AS userId
+             , user_password AS userPassword
+             , user_name AS userName
+             , user_nick AS userNick
+             , user_email AS userEmail
+             , user_type AS userType
+          FROM user
+         WHERE user_id = #{userId}
+    </select>
 </mapper>

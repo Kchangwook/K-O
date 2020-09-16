@@ -1,5 +1,6 @@
 package toy.project.kando.user.service;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.DisplayName;
@@ -31,5 +32,55 @@ public class UserServiceImplTest {
 
 		//then
 		verify(userMapper, times(1)).insertUser(user);
+	}
+
+	@Test
+	@DisplayName("로그인 테스트 - 아이디에 해당하는 데이터가 없는 경우")
+	public void loginTestWithoutData() {
+		//when
+		User requestUser = mock(User.class);
+		when(requestUser.getUserId()).thenReturn("id");
+		when(userMapper.selectUserById(requestUser.getUserId())).thenReturn(null);
+
+		//given
+		User user = userService.login(requestUser);
+
+		//then
+		assertNull(user);
+		verify(userMapper, times(1)).selectUserById(requestUser.getUserId());
+	}
+
+	@Test
+	@DisplayName("로그인 테스트 - 비밀번호가 일치하지 않는 경우")
+	public void loginTestNotEqualPassword() {
+		//when
+		User requestUser = User.builder().userId("id").userPassword("password").build();
+		User selectedUser = User.builder().userId("id").userPassword("pwd").build();
+		when(userMapper.selectUserById(requestUser.getUserId())).thenReturn(selectedUser);
+
+		//given
+		User user = userService.login(requestUser);
+
+		//then
+		assertNull(user);
+		verify(userMapper, times(1)).selectUserById(requestUser.getUserId());
+	}
+
+	@Test
+	@DisplayName("로그인 테스트 - 아이디 비밀번호가 일치하는 경우")
+	public void loginTest() {
+		//when
+		User requestUser = mock(User.class);
+		User selectedUser = mock(User.class);
+		when(requestUser.getUserId()).thenReturn("id");
+		when(requestUser.isSameUser(selectedUser)).thenReturn(true);
+		when(userMapper.selectUserById(anyString())).thenReturn(selectedUser);
+
+		//given
+		User user = userService.login(requestUser);
+
+		//then
+		assertEquals(user, selectedUser);
+		verify(userMapper, times(1)).selectUserById(requestUser.getUserId());
 	}
 }

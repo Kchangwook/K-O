@@ -17,7 +17,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"toy.project.kando"})
-@PropertySource("classpath:/message.properties")
+@PropertySource("classpath:properties/auth.properties")
 public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
@@ -44,7 +44,7 @@ public class WebConfig implements WebMvcConfigurer {
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("classpath:/message");
+		messageSource.setBasename("classpath:/properties/message");
 		messageSource.setDefaultEncoding("UTF-8");
 		return messageSource;
 	}

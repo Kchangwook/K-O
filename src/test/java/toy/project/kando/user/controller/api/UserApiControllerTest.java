@@ -16,6 +16,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -24,6 +25,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.ObjectUtils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import toy.project.kando.config.WebConfig;
 import toy.project.kando.user.model.User;
 import toy.project.kando.user.service.UserService;
@@ -31,30 +33,43 @@ import toy.project.kando.user.service.UserService;
 @ExtendWith({SpringExtension.class, MockitoExtension.class})
 @ContextConfiguration(classes = WebConfig.class)
 @WebAppConfiguration
+@TestPropertySource("classpath:/properties/auth.properties")
 public class UserApiControllerTest {
 	@Mock
 	private UserService userService;
 	@InjectMocks
 	private UserApiController userApiController;
 	private MockMvc mockMvc;
+	private ObjectMapper objectMapper;
 
 	@BeforeEach
 	public void setUp() {
 		mockMvc = MockMvcBuilders.standaloneSetup(userApiController).build();
+		objectMapper = new ObjectMapper();
 	}
 
 	@Test
 	@DisplayName("회원 가입 API 테스트")
 	public void joinTest() throws Exception {
 		//when
-		User user = User.builder().build();
-
+		User user = createUser();
 		//given
-		mockMvc.perform(post("/user").params(convertToMultiValueMap(user)))
+		mockMvc.perform(post("/user").contentType("application/json")
+												.content(objectMapper.writeValueAsString(user)))
 			.andExpect(status().is2xxSuccessful());
 
 		//then
 		verify(userService, times(1)).addUser(user);
+	}
+
+	private User createUser() {
+		return User.builder()
+			.userId("id")
+			.userName("name")
+			.userEmail("email@email.com")
+			.userNick("nick")
+			.userPassword("password")
+			.userType("type").build();
 	}
 
 	private MultiValueMap<String, String> convertToMultiValueMap(Object object)
