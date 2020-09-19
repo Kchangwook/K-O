@@ -91,4 +91,37 @@ public class UserApiControllerTest {
 
 		return multiValueMap;
 	}
+
+	@Test
+	@DisplayName("회원 ID 중복 체크 테스트 - ID가 존재하지 않을 때")
+	public void checkUserIdDuplicatedTestWithNullObject() throws Exception {
+		//when
+		String id = "id";
+		when(userService.getUserById(id)).thenReturn(null);
+
+		//given
+		mockMvc.perform(get("/user/check/id"))
+			.andExpect(status().isOk())
+			.andExpect(content().string("false"));
+
+		//then
+		verify(userService, times(1)).getUserById(id);
+	}
+
+	@Test
+	@DisplayName("회원 ID 중복 체크 테스트")
+	public void checkUserIdDuplicatedTest() throws Exception {
+		//when
+		String id = "id";
+		User user = mock(User.class);
+		when(userService.getUserById(id)).thenReturn(user);
+
+		//given
+		mockMvc.perform(get("/user/check/id"))
+			.andExpect(status().isOk())
+			.andExpect(content().string("true"));
+
+		//then
+		verify(userService, times(1)).getUserById(id);
+	}
 }

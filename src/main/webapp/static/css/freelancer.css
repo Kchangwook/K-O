@@ -608,3 +608,11 @@ fieldset[disabled] .btn-success:hover {
 .color-black {
   color:black;
 }
+
+.color-red {
+    color:red;
+}
+
+.hidden {
+   display: none;
+}
