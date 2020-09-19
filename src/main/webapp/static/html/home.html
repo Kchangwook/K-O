@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Mini Project</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="/css/freelancer.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+<header class="masthead">
+    <div class="container">
+        <img alt="" class="img-fluid" src="/img/logo.png" style="width: 250px;">
+        <div class="intro-text">
+            <span class="name">MiniProject - 평생학습관</span>
+            <hr class="star-light">
+            <span class="skills">배움으로 도약하고 나눔으로 행복한 평생 학습관</span>
+        </div>
+        <br>
+        <div id="header-section">
+            <button class="w3-button w3-green w3-large" id="login-btn">
+                Login
+            </button>
+            <button class="w3-button w3-green w3-large" id="join-btn">
+                Join
+            </button>
+            <div>
+                <div class="w3-container" style="text-align: left;">
+                    <div class="w3-modal" id="login-modal">
+                        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                            <div class="w3-center">
+                                <br>
+                                <span class="w3-button w3-xlarge w3-transparent w3-display-topright login-close" title="Close Modal">×</span>
+                                <img alt="Avatar" class="w3-circle w3-margin-top" src="/img/logo.png" style="width:30%">
+                            </div>
+                            <div class="w3-container">
+                                <div class="w3-section">
+                                    <label style="color:black;"><b>Userid</b></label>
+                                    <input class="w3-input w3-border w3-margin-bottom" id="login-id"placeholder="Enter Userid" type="text">
+                                    <label style="color:black;"><b>Password</b></label>
+                                    <input class="w3-input w3-border" id="login-pwd" placeholder="Enter Password" type="password">
+                                    <button class="w3-button w3-block w3-green w3-section w3-padding" id="login-submit">Login</button>
+                                </div>
+                            </div>
+                            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                                <button class="w3-button w3-red login-close" type="button">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-container" style="text-align: left;">
+                    <div class="w3-modal" id="join-modal">
+                        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width: 600px">
+                            <div class="w3-center">
+                                <br>
+                                <span class="w3-button w3-xlarge w3-transparent w3-display-topright join-close" title="Close Modal">×</span>
+                            </div>
+                            <div class="w3-container" style="text-align: left;">
+                                <h2 class="text-center">회원 가입</h2>
+                                <hr class="star-primary">
+                                <div class="row">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="control-group">
+                                            <div class="form-group floating-label-form-group controls">
+                                                <label>Name</label>
+                                                <input class="form-control" id="id" name="id" placeholder="ID는 1자 이상 20자 이하로 입력해주세요" type="text">
+                                                <p class="help-block text-danger"></p>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="form-group floating-label-form-group controls">
+                                                <label>password</label>
+                                                <input class="form-control" id="password" name="password" placeholder="비밀번호는 1자 이상 20자 이하로 입력해주세요." type="password">
+                                                <p class="help-block text-danger"></p>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="form-group floating-label-form-group controls">
+                                                <label>Name</label>
+                                                <input class="form-control" id="name" name="name" placeholder="이름 입력" type="text">
+                                                <p class="help-block text-danger"></p>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="form-group floating-label-form-group controls">
+                                                <label>Email</label>
+                                                <input class="form-control" id="email" name="email" placeholder="xxxx@xxxx.com 과 같은 형식으로 입력해주세요" type="email">
+                                                <p class="help-block text-danger"></p>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="form-group floating-label-form-group controls">
+                                                <label>Phone</label>
+                                                <input class="form-control" id="nick" name="nick" placeholder="닉네임은 1자 이상 10자 이하로 입력해주세요." type="text">
+                                                <p class="help-block text-danger"></p>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="form-group floating-label-form-group controls color-black">
+                                                <input checked class="user-type" name="type" type="radio" value="USER">회원
+                                                <input class="user-type" name="type" type="radio" value="TEACHER">강사
+                                                <p class="help-block text-danger"></p>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group">
+                                            <button class="btn btn-success btn-lg" id="join-submit">회원 가입</button>
+                                            <button class="btn btn-success btn-lg w3-red join-close" style="border-color:red" type="button">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/js/stringutil.js"></script>
+<script src="/js/validator.js"></script>
+<script>
+    $(document).ready(() => {
+        login.bindClickEvent();
+        join.bindClickEvent();
+    });
+
+    const login = {
+        bindClickEvent: () => {
+            $('#login-btn').on('click', () => {
+                $('#login-modal').css('display', 'block');
+            });
+            $('.login-close').on('click', () => {
+                $('#login-modal').css('display', 'none');
+            });
+            $('#login-submit').on('click', () => {
+                login.submitData();
+            });
+        },
+        submitData: () => {
+            $.ajax({
+                url: '/login',
+                data: login.getData(),
+                type: 'POST',
+                contentType: 'application/json',
+                success: (token) => {
+                    document.cookie=`token=${token};path=/`
+                    location.reload();
+                },
+                error: () => {
+                    alert('아이디랑 비밀번호를 다시 확인해주세요.');
+                }
+            });
+        },
+        getData: () => {
+            return JSON.stringify({
+                'userId': $('#login-id').val(),
+                'userPassword': $('#login-pwd').val()
+            });
+        }
+    };
+
+    const join = {
+        bindClickEvent: () => {
+            $('#join-btn').on('click', () => {
+                $('#join-modal').css('display', 'block');
+            });
+            $('.join-close').on('click', () => {
+                $('#join-modal').css('display', 'none');
+            });
+            $('#join-submit').on('click', () => {
+                const joinData = join.getData();
+                if(join.isValidData(joinData)) {
+                    join.submitData(joinData);
+                }
+            });
+        },
+        submitData: (joinData) => {
+            $.ajax({
+                url: '/user',
+                data: JSON.stringify(joinData),
+                type: 'POST',
+                contentType: 'application/json',
+                success: () => {
+                    alert('회원 가입에 성공하셨습니다.');
+                    location.reload();
+                },
+                error: () => {
+                    alert('오류로 인해 회원 가입에 실패했습니다.');
+                }
+            });
+        },
+        getData: () => {
+            return {
+                'userId': $('#id').val(),
+                'userPassword': $('#password').val(),
+                'userNick': $('#nick').val(),
+                'userEmail': $('#email').val(),
+                'userName': $('#name').val(),
+                'userType': $('.user-type:checked').val()
+            }
+        },
+        isValidData: (data) => {
+            return user.isValidValue(data.userId, 'userId')
+                && user.isValidValue(data.userPassword, 'userPassword')
+                && user.isValidValue(data.userNick, 'userNick')
+                && user.isValidValue(data.userEmail, 'userEmail')
+                && user.isValidValue(data.userName, 'userName');
+        },
+    };
+    const user = {
+        standard: {
+            'userId': {
+                'name': 'id',
+                'minLength': 1,
+                'maxLength': 20,
+                'tagIdName': 'id'
+            },
+            'userPassword': {
+                'name': '비밀번호',
+                'minLength': 1,
+                'maxLength': 20,
+                'tagIdName': 'password'
+            },
+            'userNick': {
+                'name': '닉네임',
+                'minLength': 1,
+                'maxLength': 10,
+                'tagIdName': 'nick'
+            },
+            'userEmail': {
+                'name': '이메일',
+                'minLength': 1,
+                'maxLength': 20,
+                'tagIdName': 'email'
+            },
+            'userName': {
+                'name': '이름',
+                'minLength': 1,
+                'maxLength': 10,
+                'tagIdName': 'name'
+            },
+        },
+        isValidValue: (value, propertyName) => {
+            if(user.isEmptyValue(value, propertyName) || user.isValueLengthExceed(value, propertyName)) {
+                $(`#${user.standard[propertyName].tagIdName}`).focus();
+                return false;
+            }
+
+            if(propertyName === 'userEmail' && validator.isValidEmail(value) === false) {
+                alert('유효한 형식의 이메일이 아닙니다.');
+                $('#email').focus();
+                return false;
+            }
+
+            return true;
+        },
+        isEmptyValue: (value, propertyName) => {
+            if(stringUtils.isEmpty(value)) {
+                alert(`${user.standard[propertyName].name}는 빈칸이 될 수 없습니다.`);
+                return true;
+            }
+
+            return false;
+        },
+        isValueLengthExceed: (value, propertyName) => {
+            const property = user.standard[propertyName];
+            if(value.length > property.maxLength) {
+                alert(`${property.name}는 ${property.minLength}자 이상 ${property.maxLength}자 이하입니다.`);
+                return true;
+            }
+
+            return false;
+        },
+    };
+</script>
+</body>
+</html>

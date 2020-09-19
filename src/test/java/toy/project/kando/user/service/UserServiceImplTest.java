@@ -73,7 +73,6 @@ public class UserServiceImplTest {
 		User requestUser = mock(User.class);
 		User selectedUser = mock(User.class);
 		when(requestUser.getUserId()).thenReturn("id");
-		when(requestUser.isSameUser(selectedUser)).thenReturn(true);
 		when(userMapper.selectUserById(anyString())).thenReturn(selectedUser);
 
 		//given
@@ -82,5 +81,20 @@ public class UserServiceImplTest {
 		//then
 		assertEquals(user, selectedUser);
 		verify(userMapper, times(1)).selectUserById(requestUser.getUserId());
+	}
+
+	@Test
+	@DisplayName("회원 아이디로 정보 가져오기 테스트")
+	public void getUserByIdTest() {
+		//when
+		String id = "id";
+		User user = mock(User.class);
+		when(userMapper.selectUserById(id)).thenReturn(user);
+
+		//given
+		User selectedUser = userService.getUserById("id");
+
+		//then
+		assertSame(user, selectedUser);
 	}
 }

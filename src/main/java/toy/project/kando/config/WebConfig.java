@@ -21,7 +21,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("main");
+		registry.addViewController("/").setViewName("home");
 	}
 
 	@Override

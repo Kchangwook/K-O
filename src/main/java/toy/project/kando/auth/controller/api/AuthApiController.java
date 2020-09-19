@@ -2,7 +2,6 @@ package toy.project.kando.auth.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +24,7 @@ public class AuthApiController {
 		this.userService = userService;
 	}
 
-	@PostMapping(value = "/login", produces = MediaType.TEXT_PLAIN_VALUE)
+	@PostMapping(value = "login", produces = "text/plain;charset=UTF-8")
 	public String login(@RequestBody User user) {
 		User loginUser = userService.login(user);
 
@@ -37,7 +36,7 @@ public class AuthApiController {
 	}
 
 	@ExceptionHandler(IllegalArgumentException.class)
-	public ResponseEntity<ErrorResponse> illegalArgument(IllegalArgumentException exception) {
+	public ResponseEntity<ErrorResponse> illegalArgument() {
 		ErrorResponse errorResponse = new ErrorResponse();
 		errorResponse.setHttpStatus(HttpStatus.NOT_FOUND);
 		return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
