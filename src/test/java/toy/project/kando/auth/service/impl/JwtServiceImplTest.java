@@ -1,7 +1,5 @@
 package toy.project.kando.auth.service.impl;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,7 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import toy.project.kando.auth.model.Auth;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith(MockitoExtension.class)
 public class JwtServiceImplTest {
@@ -17,7 +16,7 @@ public class JwtServiceImplTest {
 
 	@BeforeEach
 	public void setUp() {
-		jwtService = new JwtServiceImpl("secretKey", 30);
+		jwtService = new JwtServiceImpl("secretKey");
 	}
 
 	@Test
@@ -40,10 +39,9 @@ public class JwtServiceImplTest {
 		String token = jwtService.createToken("id");
 
 		//given
-		Auth auth = jwtService.getAuth(token);
+		String userId = jwtService.getUserIdFromToken(token);
 
 		//then
-		assertEquals(auth.getUserId(), "id");
-		assertNotNull(auth.getExpiration());
+		assertEquals(userId, "id");
 	}
 }

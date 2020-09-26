@@ -1,14 +1,12 @@
 package toy.project.kando.auth.controller.api;
 
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import toy.project.kando.auth.service.JwtService;
+import toy.project.kando.common.annotation.LoginUser;
 import toy.project.kando.common.model.ErrorResponse;
 import toy.project.kando.user.model.User;
 import toy.project.kando.user.service.UserService;
@@ -33,6 +31,11 @@ public class AuthApiController {
 		}
 
 		return jwtService.createToken(loginUser.getUserId());
+	}
+
+	@GetMapping("check")
+	public boolean loginCheck(@LoginUser User user) {
+		return ObjectUtils.isNotEmpty(user);
 	}
 
 	@ExceptionHandler(IllegalArgumentException.class)

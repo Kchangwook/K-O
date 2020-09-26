@@ -15,6 +15,9 @@
 </head>
 
 <body id="page-top">
+<div id="header">
+
+</div>
 <header class="masthead">
     <div class="container">
         <img alt="" class="img-fluid" src="/img/logo.png" style="width: 250px;">
@@ -137,6 +140,7 @@
     $(document).ready(() => {
         login.bindClickEvent();
         join.bindClickEvent();
+        header.loadHeader();
     });
 
     const login = {
@@ -315,6 +319,23 @@
                     alert('서버에 오류가 발생해 ID 중복 체크를 할 수 없습니다.');
                     location.reload();
                 }
+            });
+        },
+    };
+    const header = {
+        loadHeader: () => {
+            $.ajax({
+               url: '/check',
+               type: 'GET',
+               success: (result) => {
+                   if(result) {
+                       $('#header').load('/html/common/header.html');
+                       $('#header-section').addClass('hidden');
+                   }
+               },
+               error: () => {
+                   alert('서버에 문제가 발생했습니다. 잠시 후 다시 로그인을 시도해주세요.');
+               }
             });
         }
     };

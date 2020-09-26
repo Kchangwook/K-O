@@ -1,4 +1,4 @@
-package toy.project.kando.config;
+package toy.project.kando.common.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

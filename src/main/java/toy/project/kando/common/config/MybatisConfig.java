@@ -1,6 +1,4 @@
-package toy.project.kando.config;
-
-import javax.sql.DataSource;
+package toy.project.kando.common.config;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSession;
@@ -12,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 @Configuration
 @MapperScan(basePackages = "toy.project.kando", annotationClass = Mapper.class)
