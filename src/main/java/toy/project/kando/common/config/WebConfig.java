@@ -5,11 +5,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.*;
-import toy.project.kando.common.interceptor.AuthCheckInterceptor;
+import toy.project.kando.auth.interceptor.AuthCheckInterceptor;
+import toy.project.kando.auth.resolver.LoginUserArgumentResolver;
+
+import java.util.List;
 
 @Configuration
 @EnableWebMvc
@@ -17,15 +22,17 @@ import toy.project.kando.common.interceptor.AuthCheckInterceptor;
 @PropertySource("classpath:properties/auth.properties")
 public class WebConfig implements WebMvcConfigurer {
 	private final AuthCheckInterceptor authCheckInterceptor;
+	private final LoginUserArgumentResolver loginUserArgumentResolver;
 
 	@Autowired
-	public WebConfig(AuthCheckInterceptor authCheckInterceptor) {
+	public WebConfig(AuthCheckInterceptor authCheckInterceptor, LoginUserArgumentResolver loginUserArgumentResolver) {
 		this.authCheckInterceptor = authCheckInterceptor;
+		this.loginUserArgumentResolver = loginUserArgumentResolver;
 	}
 
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("home");
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
 	}
 
 	@Override
@@ -44,6 +51,17 @@ public class WebConfig implements WebMvcConfigurer {
 		return bean;
 	}
 
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/").setViewName("home");
+		registry.addViewController("/user").setViewName("user/mypage");
+	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(authCheckInterceptor).addPathPatterns("/*");
+	}
+
 	@Bean
 	public ReloadableResourceBundleMessageSource messageSource() {
 		ReloadableResourceBundleMessageSource reloadableResourceBundleMessageSource = new ReloadableResourceBundleMessageSource();
@@ -53,7 +71,7 @@ public class WebConfig implements WebMvcConfigurer {
 	}
 
 	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(authCheckInterceptor).addPathPatterns("/*");
+	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+		resolvers.add(loginUserArgumentResolver);
 	}
 }

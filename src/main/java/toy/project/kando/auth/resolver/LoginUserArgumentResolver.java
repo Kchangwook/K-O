@@ -1,4 +1,4 @@
-package toy.project.kando.common.resolver;
+package toy.project.kando.auth.resolver;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
-import toy.project.kando.common.annotation.LoginUser;
+import toy.project.kando.auth.annotation.LoginUser;
 import toy.project.kando.user.service.UserService;
 
 import static org.springframework.web.context.request.RequestAttributes.SCOPE_REQUEST;

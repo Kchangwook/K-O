@@ -1,4 +1,4 @@
-package toy.project.kando.common.annotation;
+package toy.project.kando.auth.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

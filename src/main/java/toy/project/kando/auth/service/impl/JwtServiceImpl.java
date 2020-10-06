@@ -17,6 +17,7 @@ public class JwtServiceImpl implements JwtService {
 	public JwtServiceImpl(
 		@Value("${auth.token.secretKey}") String secretKey) {
 		this.key = new SecretKeySpec(secretKey.getBytes(), SignatureAlgorithm.HS256.getJcaName());
+		System.out.println("key: " + secretKey);
 	}
 
 	@Override

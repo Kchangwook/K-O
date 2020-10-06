@@ -24,7 +24,6 @@
         <spring.version>5.2.8.RELEASE</spring.version>
         <mockito.version>3.5.10</mockito.version>
         <logback.version>1.2.3</logback.version>
-        <el.version>3.0.1-b06</el.version>
     </properties>
 
     <dependencies>
@@ -128,16 +127,6 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator-annotation-processor</artifactId>
             <version>6.1.5.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>javax.el</artifactId>
-            <version>${el.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>javax.el-api</artifactId>
-            <version>${el.version}</version>
         </dependency>
 
         <!-- Logging -->

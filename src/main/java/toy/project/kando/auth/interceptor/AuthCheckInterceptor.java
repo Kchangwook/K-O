@@ -1,4 +1,4 @@
-package toy.project.kando.common.interceptor;
+package toy.project.kando.auth.interceptor;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
