@@ -16,63 +16,96 @@
         <div class="w3-row w3-section">
             <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
             <div class="w3-rest">
-                <input class="w3-input w3-border" disabled="disabled" name="id" type="text">
+                <input class="w3-input w3-border" disabled="disabled" id="id" name="id" type="text">
             </div>
         </div>
 
         <div class="w3-row w3-section">
             <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
             <div class="w3-rest">
-                <input class="w3-input w3-border" name="password" type="password">
+                <input class="w3-input w3-border" id="password" name="password" type="password">
             </div>
         </div>
 
         <div class="w3-row w3-section">
             <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
             <div class="w3-rest">
-                <input class="w3-input w3-border" name="name" type="text">
+                <input class="w3-input w3-border" id="name" name="name" type="text">
             </div>
         </div>
 
         <div class="w3-row w3-section">
             <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope-o"></i></div>
             <div class="w3-rest">
-                <input class="w3-input w3-border" name="email" type="text">
+                <input class="w3-input w3-border" id="email" name="email" type="text">
             </div>
         </div>
 
         <div class="w3-row w3-section">
             <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
             <div class="w3-rest">
-                <input class="w3-input w3-border" name="phone" type="text">
+                <input class="w3-input w3-border" id="nick" name="nick" type="text">
             </div>
         </div>
 
         <p class="w3-center">
-            <button class="w3-button w3-section w3-blue w3-ripple"> Update </button>
+            <button class="w3-button w3-section w3-blue w3-ripple" id="update-btn"> Update </button>
         </p>
 </header>
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/js/stringutil.js"></script>
 <script src="/js/validator.js"></script>
 <script src="/js/user.js"></script>
+<script src="/js/header.js"></script>
 <script>
     $(document).ready(() => {
         header.loadHeader();
+        mypage.getMyData();
+        update.bindClickEvent();
     });
-
-    const header = {
-        loadHeader: () => {
+    const mypage = {
+        getMyData: () => {
             $.ajax({
-                url: '/check',
-                type: 'GET',
-                success: (result) => {
-                    if(result) {
-                        $('#header').load('/html/common/header.html');
-                    }
+               url: '/check',
+               type: 'GET',
+                success: (user) => {
+                    mypage.showMyData(user);
                 },
                 error: () => {
-                    alert('서버에 문제가 발생했습니다. 잠시 후 다시 로그인을 시도해주세요.');
+                    alert('오류로 인해 회원를 가져오는데 실패했습니다.');
+                }
+            });
+        },
+        showMyData: (user) => {
+            $('#id').val(user.userId);
+            $('#nick').val(user.userNick);
+            $('#name').val(user.userName);
+            $('#email').val(user.userEmail);
+        }
+    }
+
+    const update = {
+        bindClickEvent: () => {
+            $('#update-btn').on('click', () => {
+                const updateData = user.getData();
+
+                if(user.isValidData(updateData)) {
+                    update.submitData(updateData);
+                }
+            });
+        },
+        submitData: (updateData) => {
+            $.ajax({
+                url: '/user',
+                data: JSON.stringify(updateData),
+                type: 'PUT',
+                contentType: 'application/json',
+                success: () => {
+                    alert('회원 정보 수정에 성공하셨습니다.');
+                    location.reload();
+                },
+                error: () => {
+                    alert('오류로 인해 회원 정보 수정에 실패했습니다.');
                 }
             });
         }

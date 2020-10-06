@@ -4,7 +4,6 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import toy.project.kando.user.mapper.UserMapper;
 import toy.project.kando.user.model.User;
 import toy.project.kando.user.service.UserService;
@@ -38,5 +37,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUserById(String userId) {
 		return userMapper.selectUserById(userId);
+	}
+
+	@Override
+	public void modifyUser(User user) {
+		userMapper.updateUser(user);
 	}
 }

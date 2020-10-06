@@ -35,4 +35,15 @@
           FROM user
          WHERE user_id = #{userId}
     </select>
+
+    <update id="updateUser" parameterType="user">
+        UPDATE user
+           SET user_nick = #{userNick}
+             , user_email = #{userEmail}
+             , user_name = #{userName}
+           <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(userPassword)">
+             , user_password = #{userPassword}
+           </if>
+         WHERE user_id = #{userId}
+    </update>
 </mapper>
